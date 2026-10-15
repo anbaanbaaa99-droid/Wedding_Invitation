@@ -1,13 +1,30 @@
 // =====================================================
-// UNDANGAN FIKRI & SYIFA - Botanical Minimalist
+// UNDANGAN FIKRI & SYIFA
 // Ubah bagian CONFIG saja untuk menyesuaikan.
 // =====================================================
 
 const CONFIG = {
-  weddingDate: "2027-01-31T10:00:00+07:00",   // WIB
+  weddingDate: "2027-01-31T07:00:00+07:00",   // Akad mulai 07.00 WIB
   appsScriptUrl: "MASUKKAN_URL_APPS_SCRIPT",  // URL Web App berakhiran /exec
-  rekening: "XXXX XXXX XXXX"                  // samakan dengan yang tampil di index.html
+
+  // Isi data berikut (kosongkan "" untuk membiarkan teks bawaan di index.html)
+  ortuPria: "",        // contoh: "Bapak A & Ibu B"
+  ortuWanita: "",      // contoh: "Bapak C & Ibu D"
+  lokasiNama: "",      // contoh: "Masjid Al-Ikhlas"
+  lokasiAlamat: "",    // contoh: "Jl. Mawar No. 1, Jakarta"
+  mapsUrl: ""          // link Google Maps lokasi
 };
+
+// Isi teks dari CONFIG
+document.querySelectorAll("[data-cfg]").forEach((el) => {
+  const v = CONFIG[el.dataset.cfg];
+  if (v) el.textContent = v;
+});
+if (CONFIG.mapsUrl) {
+  const m = document.getElementById("mapsBtn");
+  m.href = CONFIG.mapsUrl;
+  m.hidden = false;
+}
 
 const $ = (id) => document.getElementById(id);
 
@@ -77,29 +94,12 @@ function updateCountdown() {
 const cdTimer = setInterval(updateCountdown, 1000);
 updateCountdown();
 
-// ---------- Salin rekening ----------
-async function copyRekening() {
-  const text = CONFIG.rekening.replace(/\s/g, "");
-  try {
-    await navigator.clipboard.writeText(text);
-  } catch (e) {
-    const ta = document.createElement("textarea");
-    ta.value = text;
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand("copy");
-    ta.remove();
-  }
-  toast("Nomor rekening disalin");
-}
-$("copyBtn").addEventListener("click", copyRekening);
-
 // ---------- Daftar ucapan ----------
 function renderWishes(list) {
   const box = $("wishes");
   box.innerHTML = "";
   if (!list.length) {
-    box.innerHTML = '<p class="muted">Jadilah yang pertama memberi ucapan.</p>';
+    box.innerHTML = '<p class="muted">Jadilah yang pertama memberi do’a.</p>';
     return;
   }
   list.forEach(addWish);
@@ -149,7 +149,6 @@ form.addEventListener("submit", (e) => {
 
   const data = {
     nama: $("nama").value.trim(),
-    jumlah: $("jumlah").value,
     status: $("status").value,
     pesan: $("pesan").value.trim(),
     tanggal: new Date().toLocaleString("id-ID")
@@ -165,15 +164,14 @@ form.addEventListener("submit", (e) => {
     body: JSON.stringify(data)
   })
     .then(() => {
-      toast("Terima kasih, konfirmasi Anda sudah terkirim");
+      toast("Terima kasih, konfirmasi sudah terkirim");
       if (data.pesan) addWish(data, true);
       form.reset();
-      $("jumlah").value = 1;
       if (guest) $("nama").value = guest;
     })
     .catch(() => toast("Gagal mengirim. Coba lagi."))
     .finally(() => {
       btn.disabled = false;
-      btn.textContent = "Kirim konfirmasi";
+      btn.textContent = "Kirim";
     });
 });

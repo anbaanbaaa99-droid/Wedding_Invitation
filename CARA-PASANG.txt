@@ -1,6 +1,24 @@
-1. Google Sheet baru > Extensions > Apps Script > tempel isi apps-script.gs
-2. Deploy > New deployment > Web app (Execute as: Me, Access: Anyone) > salin URL /exec
-3. script.js: isi appsScriptUrl dan rekening (bagian CONFIG paling atas)
-4. index.html: ganti nama lengkap, orang tua, cerita, lokasi, link Maps, rekening
-5. GitHub: repo Public > upload index.html, style.css, script.js
-6. Settings > Pages > main / root. Link tamu: https://USERNAME.github.io/REPO/?to=Nama%20Tamu
+CARA PASANG UNDANGAN FIKRI & SYIFA (GitHub Pages + Apps Script)
+
+A. GOOGLE SHEET + APPS SCRIPT (untuk RSVP & ucapan)
+1. Buat Google Sheet baru (kosong).
+2. Extensions > Apps Script. Hapus isi bawaan, tempel seluruh isi apps-script.gs, Save.
+3. Deploy > New deployment > ikon roda gigi > Web app.
+   Execute as: Me | Who has access: Anyone > Deploy > izinkan akses.
+4. Salin URL Web app (berakhiran /exec).
+   Catatan: jika Anda mengubah kode lagi nanti, pilih Deploy > Manage deployments > Edit > New version.
+   Jika sebelumnya sudah ada sheet "RSVP" dari versi lama, hapus sheet itu agar kolomnya dibuat ulang.
+
+B. ISI DATA DI script.js (bagian CONFIG paling atas)
+- appsScriptUrl : tempel URL /exec tadi
+- ortuPria, ortuWanita : nama kedua orang tua
+- lokasiNama, lokasiAlamat, mapsUrl : lokasi akad (tombol Maps muncul otomatis bila mapsUrl diisi)
+
+C. GITHUB PAGES
+1. Buat repository Public di GitHub (misal: undangan).
+2. Upload index.html, style.css, script.js (apps-script.gs tidak wajib diupload).
+3. Settings > Pages > Source: Deploy from a branch > main / (root) > Save.
+4. Tunggu 1-2 menit. Link undangan:
+   https://USERNAME.github.io/undangan/
+   Link per tamu (nama otomatis muncul di cover dan kolom RSVP):
+   https://USERNAME.github.io/undangan/?to=Budi%20Santoso
