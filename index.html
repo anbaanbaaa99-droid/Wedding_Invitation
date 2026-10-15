@@ -7,7 +7,7 @@
 <meta property="og:title" content="The Wedding of Fikri & Syifa">
 <meta property="og:description" content="Minggu, 31 Januari 2027">
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Mansalva&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=2">
 <noscript><style>.cover{display:none!important}#content[hidden]{display:block!important}.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body class="locked">
@@ -127,6 +127,20 @@
   </footer>
 </main>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="script.js"></script>
+<script src="script.js?v=2"></script>
+<script>
+// Pengaman: jika script.js gagal dimuat, tombol tetap bisa membuka undangan
+window.addEventListener("load", function () {
+  if (window.__inv) return;
+  var btn = document.getElementById("openBtn");
+  btn.addEventListener("click", function () {
+    document.getElementById("cover").style.display = "none";
+    document.getElementById("content").hidden = false;
+    document.body.classList.remove("locked");
+    document.querySelectorAll(".reveal").forEach(function (e) { e.classList.add("show"); });
+    window.scrollTo(0, 0);
+  });
+});
+</script>
 </body>
 </html>

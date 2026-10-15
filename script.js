@@ -26,6 +26,7 @@ if (CONFIG.mapsUrl) {
   m.hidden = false;
 }
 
+window.__inv = true; // penanda script.js berhasil dimuat
 const $ = (id) => document.getElementById(id);
 
 // ---------- Toast ----------
