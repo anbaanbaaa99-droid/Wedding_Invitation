@@ -289,7 +289,7 @@ new Date()
 
 fetch(
 
-"MASUKKAN_URL_APPS_SCRIPT",
+"https://script.google.com/macros/s/AKfycbzPp2r9r2aWqKbAEx3VRgHG7Vz4H5SwbdHUa7fKEb0KmyS2v14DALWtYEm9MO6B_XP_/exec",
 
 {
 
