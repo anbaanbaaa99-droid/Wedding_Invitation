@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Undangan Pernikahan Fikri & Syifa</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="flower flower-tl">🌿</div>
+  <div class="flower flower-br">🌸</div>
+  <p class="small">The Wedding Of</p>
+  <h1 class="script">Fikri & Syifa</h1>
+  <p class="small">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+  <button class="btn" onclick="openInvitation()">Buka Undangan</button>
+</div>
+
+<!-- ISI -->
+<div id="content">
+
+  <section class="hero">
+    <p class="small">Kami Mengundang Anda</p>
+    <h1 class="script">Fikri & Syifa</h1>
+    <p>31 Januari 2027</p>
+  </section>
+
+  <section>
+    <h2 class="script">Hitung Mundur</h2>
+    <div class="timer">
+      <div><span id="days">0</span><small>Hari</small></div>
+      <div><span id="hours">0</span><small>Jam</small></div>
+      <div><span id="minutes">0</span><small>Menit</small></div>
+      <div><span id="seconds">0</span><small>Detik</small></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="script">Acara</h2>
+    <p><b>Akad & Resepsi</b></p>
+    <p>Minggu, 31 Januari 2027<br>Pukul 10.00 WIB</p>
+    <p>Nama Gedung / Alamat Lengkap</p>
+    <a class="btn" href="https://maps.google.com/?q=ISI_LOKASI" target="_blank">Lihat Lokasi</a>
+  </section>
+
+  <section>
+    <h2 class="script">Hadiah</h2>
+    <p>Bank XXX a.n. Nama Penerima</p>
+    <p><b>XXXX XXXX XXXX</b></p>
+    <button class="btn" onclick="copyRekening()">Salin Rekening</button>
+  </section>
+
+  <section>
+    <h2 class="script">RSVP</h2>
+    <form id="rsvpForm">
+      <input id="nama" placeholder="Nama" required>
+      <input id="jumlah" type="number" min="1" max="5" placeholder="Jumlah tamu" required>
+      <select id="status" required>
+        <option value="">Konfirmasi kehadiran</option>
+        <option>Hadir</option>
+        <option>Tidak Hadir</option>
+      </select>
+      <textarea id="pesan" placeholder="Ucapan & doa"></textarea>
+      <button class="btn" type="submit">Kirim</button>
+    </form>
+  </section>
+
+  <footer><p class="script">Terima kasih 🤍</p></footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
