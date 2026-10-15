@@ -1,398 +1,179 @@
-// =================================
-// FIKRI & SYIFA WEDDING WEBSITE
-// Botanical Minimalist Version
-// =================================
-
-
-
-// ================================
-// OPEN INVITATION
-// ================================
-
-function openInvitation(){
-
-    const cover = document.querySelector(".cover");
-    const content = document.getElementById("content");
-
-
-    cover.classList.add("hide-cover");
-
-
-    setTimeout(()=>{
-
-        cover.style.display="none";
-
-        content.style.display="block";
-
-
-        window.scrollTo({
-            top:0,
-            behavior:"smooth"
-        });
-
-
-    },1200);
-
-
-}
-
-
-
-
-
-// ================================
-// COUNTDOWN WEDDING
-// ================================
-
-
-const weddingDate = new Date(
-"January 31, 2027 10:00:00"
-).getTime();
-
-
-
-function updateCountdown(){
-
-
-    const now = new Date().getTime();
-
-
-    const distance =
-    weddingDate - now;
-
-
-
-    if(distance < 0){
-
-        document.querySelector(".timer")
-        .innerHTML =
-        "Hari Bahagia Telah Tiba";
-
-        return;
-
-    }
-
-
-
-    const days =
-    Math.floor(
-    distance /
-    (1000*60*60*24)
-    );
-
-
-    const hours =
-    Math.floor(
-    (distance %
-    (1000*60*60*24)) /
-    (1000*60*60)
-    );
-
-
-    const minutes =
-    Math.floor(
-    (distance %
-    (1000*60*60)) /
-    (1000*60)
-    );
-
-
-    const seconds =
-    Math.floor(
-    (distance %
-    (1000*60)) /
-    1000
-    );
-
-
-
-    document.getElementById("days")
-    .innerHTML = days;
-
-
-    document.getElementById("hours")
-    .innerHTML = hours;
-
-
-    document.getElementById("minutes")
-    .innerHTML = minutes;
-
-
-    document.getElementById("seconds")
-    .innerHTML = seconds;
-
-
-}
-
-
-setInterval(updateCountdown,1000);
-
-updateCountdown();
-
-
-
-
-
-
-
-// ================================
-// SCROLL ANIMATION
-// ================================
-
-
-const sections =
-document.querySelectorAll("section");
-
-
-
-const observer =
-new IntersectionObserver(
-
-(entries)=>{
-
-
-entries.forEach(entry=>{
-
-
-if(entry.isIntersecting){
-
-
-entry.target.classList.add(
-"show"
-);
-
-
-}
-
-
-});
-
-
-},
-
-{
-threshold:0.15
-}
-
-
-);
-
-
-
-sections.forEach(section=>{
-
-observer.observe(section);
-
-});
-
-
-
-
-
-
-
-
-// ================================
-// COPY REKENING
-// ================================
-
-
-function copyRekening(){
-
-
-const rekening =
-"XXXX XXXX XXXX";
-
-
-
-navigator.clipboard
-.writeText(rekening);
-
-
-
-alert(
-"Nomor rekening berhasil disalin"
-);
-
-
-}
-
-
-
-
-
-
-
-// ================================
-// RSVP GOOGLE SHEET
-// ================================
-
-
-const form =
-document.getElementById(
-"rsvpForm"
-);
-
-
-
-if(form){
-
-
-form.addEventListener(
-"submit",
-(e)=>{
-
-
-e.preventDefault();
-
-
-
-const data = {
-
-
-nama:
-document.getElementById(
-"nama"
-).value,
-
-
-jumlah:
-document.getElementById(
-"jumlah"
-).value,
-
-
-status:
-document.getElementById(
-"status"
-).value,
-
-
-pesan:
-document.getElementById(
-"pesan"
-).value,
-
-
-tanggal:
-new Date()
-.toLocaleString(
-"id-ID"
-)
-
-
+// =====================================================
+// UNDANGAN FIKRI & SYIFA - Botanical Minimalist
+// Ubah bagian CONFIG saja untuk menyesuaikan.
+// =====================================================
+
+const CONFIG = {
+  weddingDate: "2027-01-31T10:00:00+07:00",   // WIB
+  appsScriptUrl: "MASUKKAN_URL_APPS_SCRIPT",  // URL Web App berakhiran /exec
+  rekening: "XXXX XXXX XXXX"                  // samakan dengan yang tampil di index.html
 };
 
+const $ = (id) => document.getElementById(id);
 
-
-
-
-fetch(
-
-"https://script.google.com/macros/s/AKfycbzPp2r9r2aWqKbAEx3VRgHG7Vz4H5SwbdHUa7fKEb0KmyS2v14DALWtYEm9MO6B_XP_/exec",
-
-{
-
-
-method:"POST",
-
-mode:"no-cors",
-
-
-headers:{
-
-
-"Content-Type":
-"application/json"
-
-},
-
-
-body:
-JSON.stringify(data)
-
-
+// ---------- Toast ----------
+let toastTimer;
+function toast(msg) {
+  const t = $("toast");
+  t.textContent = msg;
+  t.classList.add("on");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove("on"), 2800);
 }
 
-
-)
-
-
-
-.then(()=>{
-
-
-alert(
-"Terima kasih atas konfirmasi Anda 🤍"
-);
-
-
-
-form.reset();
-
-
-
-})
-
-
-
-.catch(()=>{
-
-
-alert(
-"Gagal mengirim data"
-);
-
-
-});
-
-
-
-});
-
-
+// ---------- Nama tamu dari link: ?to=Budi%20Santoso ----------
+const guest = new URLSearchParams(location.search).get("to");
+if (guest) {
+  $("guestName").textContent = guest;
+  $("nama").value = guest;
 }
 
+// ---------- Buka undangan ----------
+function openInvitation() {
+  const cover = $("cover");
+  const content = $("content");
+  cover.classList.add("hide-cover");
+  content.hidden = false;
+  document.body.classList.remove("locked");
+  window.scrollTo(0, 0);
+  startReveal();
+  setTimeout(() => { cover.style.display = "none"; }, 1100);
+}
+$("openBtn").addEventListener("click", openInvitation);
 
+// ---------- Animasi muncul saat scroll ----------
+function startReveal() {
+  const items = document.querySelectorAll(".reveal");
+  if (!("IntersectionObserver" in window)) {
+    items.forEach((el) => el.classList.add("show"));
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add("show");
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  items.forEach((el) => io.observe(el));
+}
 
+// ---------- Hitung mundur ----------
+const weddingTime = new Date(CONFIG.weddingDate).getTime();
+function updateCountdown() {
+  const d = weddingTime - Date.now();
+  if (d <= 0) {
+    document.querySelector(".timer").innerHTML = "<p>Hari bahagia telah tiba</p>";
+    clearInterval(cdTimer);
+    return;
+  }
+  const pad = (n) => String(n).padStart(2, "0");
+  $("days").textContent = Math.floor(d / 86400000);
+  $("hours").textContent = pad(Math.floor((d % 86400000) / 3600000));
+  $("minutes").textContent = pad(Math.floor((d % 3600000) / 60000));
+  $("seconds").textContent = pad(Math.floor((d % 60000) / 1000));
+}
+const cdTimer = setInterval(updateCountdown, 1000);
+updateCountdown();
 
+// ---------- Salin rekening ----------
+async function copyRekening() {
+  const text = CONFIG.rekening.replace(/\s/g, "");
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch (e) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand("copy");
+    ta.remove();
+  }
+  toast("Nomor rekening disalin");
+}
+$("copyBtn").addEventListener("click", copyRekening);
 
+// ---------- Daftar ucapan ----------
+function renderWishes(list) {
+  const box = $("wishes");
+  box.innerHTML = "";
+  if (!list.length) {
+    box.innerHTML = '<p class="muted">Jadilah yang pertama memberi ucapan.</p>';
+    return;
+  }
+  list.forEach(addWish);
+}
+function addWish(w, prepend) {
+  const box = $("wishes");
+  const el = document.createElement("div");
+  el.className = "wish";
+  const name = document.createElement("b");
+  name.textContent = w.nama;
+  const st = document.createElement("small");
+  st.textContent = w.status;
+  const msg = document.createElement("p");
+  msg.textContent = w.pesan;
+  el.append(name, st, msg);
+  if (prepend) {
+    const empty = box.querySelector(".muted");
+    if (empty) empty.remove();
+    box.prepend(el);
+  } else {
+    box.append(el);
+  }
+}
+function loadWishes() {
+  if (CONFIG.appsScriptUrl.startsWith("MASUKKAN")) {
+    renderWishes([]);
+    return;
+  }
+  fetch(CONFIG.appsScriptUrl)
+    .then((r) => r.json())
+    .then(renderWishes)
+    .catch(() => {
+      $("wishes").innerHTML = '<p class="muted">Ucapan belum dapat dimuat.</p>';
+    });
+}
+loadWishes();
 
+// ---------- RSVP ke Google Sheet ----------
+const form = $("rsvpForm");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
 
+  if (CONFIG.appsScriptUrl.startsWith("MASUKKAN")) {
+    toast("URL Apps Script belum diisi");
+    return;
+  }
 
-// ================================
-// SMOOTH SCROLL
-// ================================
+  const data = {
+    nama: $("nama").value.trim(),
+    jumlah: $("jumlah").value,
+    status: $("status").value,
+    pesan: $("pesan").value.trim(),
+    tanggal: new Date().toLocaleString("id-ID")
+  };
 
+  const btn = $("sendBtn");
+  btn.disabled = true;
+  btn.textContent = "Mengirim…";
 
-document
-.querySelectorAll(
-'a[href^="#"]'
-)
-.forEach(anchor=>{
-
-
-anchor.addEventListener(
-"click",
-function(e){
-
-
-e.preventDefault();
-
-
-
-document
-.querySelector(
-this.getAttribute("href")
-)
-.scrollIntoView({
-
-behavior:"smooth"
-
-});
-
-
-});
-
-
+  fetch(CONFIG.appsScriptUrl, {
+    method: "POST",
+    mode: "no-cors",
+    body: JSON.stringify(data)
+  })
+    .then(() => {
+      toast("Terima kasih, konfirmasi Anda sudah terkirim");
+      if (data.pesan) addWish(data, true);
+      form.reset();
+      $("jumlah").value = 1;
+      if (guest) $("nama").value = guest;
+    })
+    .catch(() => toast("Gagal mengirim. Coba lagi."))
+    .finally(() => {
+      btn.disabled = false;
+      btn.textContent = "Kirim konfirmasi";
+    });
 });

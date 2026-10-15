@@ -4,73 +4,150 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Undangan Pernikahan Fikri & Syifa</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<meta name="description" content="Kami mengundang Anda di pernikahan Fikri & Syifa, 31 Januari 2027.">
+<meta property="og:title" content="Undangan Pernikahan Fikri & Syifa">
+<meta property="og:description" content="Minggu, 31 Januari 2027">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<noscript><style>.cover{display:none!important}#content[hidden]{display:block!important}.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
-<body>
+<body class="locked">
+
+<!-- Ilustrasi ranting (dipakai berulang) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="sprig" viewBox="0 0 120 230">
+    <path d="M60 228 C57 160 63 90 60 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    <g fill="currentColor">
+      <ellipse cx="40" cy="190" rx="19" ry="6.5" transform="rotate(-38 40 190)"/>
+      <ellipse cx="82" cy="165" rx="19" ry="6.5" transform="rotate(38 82 165)"/>
+      <ellipse cx="38" cy="138" rx="17" ry="6" transform="rotate(-38 38 138)"/>
+      <ellipse cx="82" cy="112" rx="17" ry="6" transform="rotate(38 82 112)"/>
+      <ellipse cx="42" cy="86" rx="14" ry="5" transform="rotate(-38 42 86)"/>
+      <ellipse cx="78" cy="62" rx="14" ry="5" transform="rotate(38 78 62)"/>
+      <ellipse cx="60" cy="26" rx="8" ry="14"/>
+    </g>
+    <g fill="#d8b4a6">
+      <circle cx="22" cy="168" r="3.4"/><circle cx="100" cy="140" r="3.4"/><circle cx="24" cy="112" r="3"/><circle cx="98" cy="88" r="3"/>
+    </g>
+  </symbol>
+</svg>
 
 <!-- COVER -->
-<div class="cover">
-  <div class="flower flower-tl">🌿</div>
-  <div class="flower flower-br">🌸</div>
-  <p class="small">The Wedding Of</p>
-  <h1 class="script">Fikri & Syifa</h1>
-  <p class="small">Kepada Yth. Bapak/Ibu/Saudara/i</p>
-  <button class="btn" onclick="openInvitation()">Buka Undangan</button>
+<div class="cover" id="cover">
+  <svg class="sprig sprig-a" aria-hidden="true"><use href="#sprig"/></svg>
+  <svg class="sprig sprig-b" aria-hidden="true"><use href="#sprig"/></svg>
+
+  <div class="arch">
+    <p class="kicker">Undangan Pernikahan</p>
+    <h1 class="names"><span>Fikri</span><i>&amp;</i><span>Syifa</span></h1>
+    <p class="date">31 · 01 · 2027</p>
+  </div>
+
+  <div class="guest">
+    <p>Kepada Yth.</p>
+    <p class="guest-name" id="guestName">Bapak/Ibu/Saudara/i</p>
+  </div>
+  <button class="btn" id="openBtn" type="button">Buka Undangan</button>
 </div>
 
 <!-- ISI -->
-<div id="content">
+<main id="content" class="wrap" hidden>
 
-  <section class="hero">
-    <p class="small">Kami Mengundang Anda</p>
-    <h1 class="script">Fikri & Syifa</h1>
-    <p>31 Januari 2027</p>
+  <section class="hero reveal">
+    <svg class="sprig sprig-hero" aria-hidden="true"><use href="#sprig"/></svg>
+    <p class="kicker">Kami mengundang Anda</p>
+    <h2 class="names big"><span>Fikri</span><i>&amp;</i><span>Syifa</span></h2>
+    <p class="date">Minggu, 31 Januari 2027</p>
   </section>
 
-  <section>
-    <h2 class="script">Hitung Mundur</h2>
-    <div class="timer">
-      <div><span id="days">0</span><small>Hari</small></div>
-      <div><span id="hours">0</span><small>Jam</small></div>
-      <div><span id="minutes">0</span><small>Menit</small></div>
-      <div><span id="seconds">0</span><small>Detik</small></div>
+  <section class="reveal">
+    <p class="lead">Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan pernikahan putra-putri kami.</p>
+    <div class="couple">
+      <div>
+        <h3 class="script">Fikri</h3>
+        <p>Nama Lengkap Mempelai Pria</p>
+        <p class="muted">Putra dari Bapak ………… &amp; Ibu …………</p>
+      </div>
+      <div>
+        <h3 class="script">Syifa</h3>
+        <p>Nama Lengkap Mempelai Wanita</p>
+        <p class="muted">Putri dari Bapak ………… &amp; Ibu …………</p>
+      </div>
     </div>
   </section>
 
-  <section>
-    <h2 class="script">Acara</h2>
-    <p><b>Akad & Resepsi</b></p>
-    <p>Minggu, 31 Januari 2027<br>Pukul 10.00 WIB</p>
-    <p>Nama Gedung / Alamat Lengkap</p>
-    <a class="btn" href="https://maps.google.com/?q=ISI_LOKASI" target="_blank">Lihat Lokasi</a>
+  <section class="reveal">
+    <h2 class="script title">Menuju Hari Bahagia</h2>
+    <div class="timer" role="timer" aria-live="off">
+      <div><span id="days">0</span><small>hari</small></div>
+      <div><span id="hours">0</span><small>jam</small></div>
+      <div><span id="minutes">0</span><small>menit</small></div>
+      <div><span id="seconds">0</span><small>detik</small></div>
+    </div>
   </section>
 
-  <section>
-    <h2 class="script">Hadiah</h2>
-    <p>Bank XXX a.n. Nama Penerima</p>
-    <p><b>XXXX XXXX XXXX</b></p>
-    <button class="btn" onclick="copyRekening()">Salin Rekening</button>
+  <section class="reveal">
+    <h2 class="script title">Waktu &amp; Tempat</h2>
+    <div class="event">
+      <h3>Akad Nikah</h3>
+      <p>Minggu, 31 Januari 2027<br>Pukul 10.00 WIB</p>
+    </div>
+    <div class="event">
+      <h3>Resepsi</h3>
+      <p>Minggu, 31 Januari 2027<br>Pukul 12.00 WIB – selesai</p>
+    </div>
+    <p class="place"><b>Nama Gedung / Rumah</b><br>Alamat lengkap lokasi acara</p>
+    <a class="btn" href="https://maps.google.com/?q=ISI_LOKASI_ACARA" target="_blank" rel="noopener">Buka di Google Maps</a>
   </section>
 
-  <section>
-    <h2 class="script">RSVP</h2>
+  <section class="reveal">
+    <h2 class="script title">Tanda Kasih</h2>
+    <p class="lead">Kehadiran dan doa Anda sudah menjadi hadiah terindah. Bila ingin berbagi tanda kasih, dapat melalui:</p>
+    <div class="bank">
+      <p>Bank XXX a.n. Nama Penerima</p>
+      <p class="rek" id="rekText">XXXX XXXX XXXX</p>
+      <button class="btn" id="copyBtn" type="button">Salin nomor rekening</button>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <h2 class="script title">Konfirmasi Kehadiran</h2>
     <form id="rsvpForm">
-      <input id="nama" placeholder="Nama" required>
-      <input id="jumlah" type="number" min="1" max="5" placeholder="Jumlah tamu" required>
-      <select id="status" required>
-        <option value="">Konfirmasi kehadiran</option>
+      <label for="nama">Nama</label>
+      <input id="nama" name="nama" autocomplete="name" required maxlength="80">
+
+      <label for="status">Kehadiran</label>
+      <select id="status" name="status" required>
+        <option value="">Pilih salah satu</option>
         <option>Hadir</option>
-        <option>Tidak Hadir</option>
+        <option>Tidak hadir</option>
       </select>
-      <textarea id="pesan" placeholder="Ucapan & doa"></textarea>
-      <button class="btn" type="submit">Kirim</button>
+
+      <label for="jumlah">Jumlah tamu</label>
+      <input id="jumlah" name="jumlah" type="number" min="1" max="5" value="1" required>
+
+      <label for="pesan">Ucapan &amp; doa</label>
+      <textarea id="pesan" name="pesan" maxlength="300"></textarea>
+
+      <button class="btn solid" id="sendBtn" type="submit">Kirim konfirmasi</button>
     </form>
   </section>
 
-  <footer><p class="script">Terima kasih 🤍</p></footer>
-</div>
+  <section class="reveal">
+    <h2 class="script title">Ucapan untuk Kami</h2>
+    <div id="wishes" class="wishes"><p class="muted">Memuat ucapan…</p></div>
+  </section>
 
+  <footer class="reveal">
+    <svg class="sprig sprig-foot" aria-hidden="true"><use href="#sprig"/></svg>
+    <p class="lead">Merupakan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.</p>
+    <p class="script sign">Fikri &amp; Syifa</p>
+  </footer>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script src="script.js"></script>
 </body>
 </html>
