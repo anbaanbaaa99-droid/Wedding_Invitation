@@ -1,9 +1,6 @@
 1. Google Sheet baru > Extensions > Apps Script > tempel isi apps-script.gs
-2. Deploy > New deployment > Web app
-   Execute as: Me | Who has access: Anyone > Deploy > salin URL /exec
-3. Buka script.js, isi appsScriptUrl dengan URL tadi. Ganti juga rekening.
-4. Di index.html ganti: nama lengkap, orang tua, alamat, link Maps, rekening.
-5. GitHub: buat repo Public > upload index.html, style.css, script.js
-   (apps-script.gs dan file ini tidak perlu di-upload)
-6. Settings > Pages > Deploy from a branch > main / root > Save
-7. Link tamu: https://USERNAME.github.io/NAMA-REPO/?to=Nama%20Tamu
+2. Deploy > New deployment > Web app (Execute as: Me, Access: Anyone) > salin URL /exec
+3. script.js: isi appsScriptUrl dan rekening (bagian CONFIG paling atas)
+4. index.html: ganti nama lengkap, orang tua, cerita, lokasi, link Maps, rekening
+5. GitHub: repo Public > upload index.html, style.css, script.js
+6. Settings > Pages > main / root. Link tamu: https://USERNAME.github.io/REPO/?to=Nama%20Tamu
