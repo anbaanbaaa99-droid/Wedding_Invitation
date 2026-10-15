@@ -6,8 +6,8 @@
 <title>Undangan Pernikahan Fikri & Syifa</title>
 <meta property="og:title" content="The Wedding of Fikri & Syifa">
 <meta property="og:description" content="Minggu, 31 Januari 2027">
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Mansalva&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=2">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Mansalva&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=3">
 <noscript><style>.cover{display:none!important}#content[hidden]{display:block!important}.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body class="locked">
@@ -25,7 +25,7 @@
   <svg class="cn c3"><use href="#corner"/></svg><svg class="cn c4"><use href="#corner"/></svg>
   <i class="petal" style="--l:20%;--d:0s"></i><i class="petal" style="--l:48%;--d:2s"></i><i class="petal" style="--l:72%;--d:4s"></i><i class="petal" style="--l:34%;--d:6s"></i>
   <p class="small">Hari Pernikahan dan Hari Bahagia</p>
-  <h1 class="names">Fikri <small>&amp;</small> Syifa</h1>
+  <h1 class="names nm">Fikri <small>&amp;</small> Syifa</h1>
   <p class="small">31 Januari 2027</p>
   <div class="guest"><p class="small">Turut mengundang,</p><p class="gname" id="guestName">Bapak/Ibu/Saudara/i</p></div>
   <button class="btn solid" id="openBtn" type="button">Buka Undangan</button>
@@ -44,11 +44,11 @@
   <section class="reveal green">
     <svg class="duo"><use href="#duo"/></svg>
     <p class="small">Pengantin Pria</p>
-    <h2 class="names">Fikri Nurul Hadi</h2>
+    <h2 class="names nm">Fikri Nurul Hadi</h2>
     <p class="body">Putra dari<br><span data-cfg="ortuPria">(nama kedua orang tua)</span></p>
     <svg class="bl"><use href="#bloom"/></svg>
     <p class="small">Pengantin Wanita</p>
-    <h2 class="names">Syifa Dewi Fajriyani</h2>
+    <h2 class="names nm">Syifa Dewi Fajriyani</h2>
     <p class="body">Putri dari<br><span data-cfg="ortuWanita">(nama kedua orang tua)</span></p>
     <svg class="duo"><use href="#duo"/></svg>
   </section>
@@ -98,6 +98,12 @@
       <a class="btn" id="mapsBtn" href="#" target="_blank" rel="noopener" hidden>Buka Maps</a></div>
   </section>
 
+  <!-- UCAPAN -->
+  <section class="reveal">
+    <h2 class="names title">Pesan &amp; Do’a</h2>
+    <div id="wishes" class="wishes"><p class="body">Memuat ucapan…</p></div>
+  </section>
+
   <!-- RSVP -->
   <section class="reveal olive">
     <h2 class="names title">Silahkan Konfirmasi</h2>
@@ -112,22 +118,16 @@
     <svg class="bl"><use href="#bloom"/></svg>
   </section>
 
-  <!-- UCAPAN -->
-  <section class="reveal">
-    <h2 class="names title">Pesan &amp; Do’a</h2>
-    <div id="wishes" class="wishes"><p class="body">Memuat ucapan…</p></div>
-  </section>
-
   <footer class="reveal">
     <svg class="bl big"><use href="#bloom"/></svg>
     <p class="hand">Terima kasih</p>
     <p class="body">Sudah menjadi bagian di momen paling berharga kami, semoga semua do’a baiknya senantiasa kembali kepada kalian.</p>
     <p class="body">Kami tunggu kehadirannya,<br>salam hangat,</p>
-    <p class="names">Fikri <small>&amp;</small> Syifa</p>
+    <p class="names nm">Fikri <small>&amp;</small> Syifa</p>
   </footer>
 </main>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="script.js?v=2"></script>
+<script src="script.js?v=3"></script>
 <script>
 // Pengaman: jika script.js gagal dimuat, tombol tetap bisa membuka undangan
 window.addEventListener("load", function () {
