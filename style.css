@@ -1,0 +1,61 @@
+:root{
+  --cream:#faf7f0; --green:#5f7355; --soft:#a8b89a; --text:#3e3a33;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Cormorant Garamond',serif;
+  background:var(--cream); color:var(--text);
+  text-align:center; font-size:18px;
+}
+.script{font-family:'Great Vibes',cursive;color:var(--green);font-weight:400}
+h1.script{font-size:3rem} h2.script{font-size:2.2rem;margin-bottom:16px}
+.small{letter-spacing:3px;text-transform:uppercase;font-size:.8rem;margin:10px 0}
+
+/* COVER */
+.cover{
+  position:fixed; inset:0; z-index:100;
+  display:flex; flex-direction:column; justify-content:center; align-items:center;
+  background:var(--cream); padding:24px;
+  transition:opacity 1.2s ease, transform 1.2s ease;
+}
+.cover.hide-cover{opacity:0; transform:scale(1.08); pointer-events:none}
+.flower{position:absolute;font-size:5rem;opacity:.7;animation:sway 6s ease-in-out infinite}
+.flower-tl{top:10px;left:10px}
+.flower-br{bottom:10px;right:10px;animation-delay:2s}
+@keyframes sway{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+
+/* ISI */
+#content{display:none}
+section{
+  min-height:80vh; padding:60px 24px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px;
+  opacity:0; transform:translateY(40px);
+  transition:opacity 1.2s ease, transform 1.2s ease;
+}
+section.show{opacity:1; transform:none}
+.hero{min-height:100vh}
+
+.btn{
+  display:inline-block; margin-top:14px; padding:12px 28px;
+  border:1px solid var(--green); border-radius:30px;
+  background:transparent; color:var(--green);
+  font-family:inherit; font-size:1rem; text-decoration:none; cursor:pointer;
+  transition:.3s;
+}
+.btn:hover{background:var(--green);color:#fff}
+
+.timer{display:flex;gap:14px;justify-content:center}
+.timer div{
+  width:70px; padding:12px 0; border:1px solid var(--soft); border-radius:10px;
+  display:flex; flex-direction:column;
+}
+.timer span{font-size:1.8rem;color:var(--green)}
+.timer small{font-size:.7rem;text-transform:uppercase}
+
+form{display:flex;flex-direction:column;gap:12px;width:100%;max-width:380px}
+input,select,textarea{
+  padding:12px; border:1px solid var(--soft); border-radius:8px;
+  background:#fff; font-family:inherit; font-size:1rem;
+}
+textarea{min-height:90px}
+footer{padding:50px 0;font-size:1.6rem}
