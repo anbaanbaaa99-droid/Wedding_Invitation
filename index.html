@@ -7,11 +7,7 @@
 <meta property="og:title" content="The Wedding of Fikri & Syifa">
 <meta property="og:description" content="Minggu, 31 Januari 2027">
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Mansalva&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=6">
-<script>
-/* Jika PNG belum diunggah, otomatis pakai gambar vektor bawaan */
-function imgFb(i){var N="http://www.w3.org/2000/svg",s=document.createElementNS(N,"svg"),u=document.createElementNS(N,"use");s.setAttribute("class",i.className);u.setAttribute("href","#"+i.dataset.fb);s.appendChild(u);i.replaceWith(s)}
-</script>
+<link rel="stylesheet" href="style.css?v=3">
 <noscript><style>.cover{display:none!important}#content[hidden]{display:block!important}.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body class="locked">
@@ -25,8 +21,8 @@ function imgFb(i){var N="http://www.w3.org/2000/svg",s=document.createElementNS(
 
 <!-- COVER -->
 <div class="cover" id="cover">
-  <img class="cn c1" src="img/sudut.png" alt="" data-fb="corner" onerror="imgFb(this)"><img class="cn c2" src="img/sudut.png" alt="" data-fb="corner" onerror="imgFb(this)">
-  <img class="cn c3" src="img/sudut.png" alt="" data-fb="corner" onerror="imgFb(this)"><img class="cn c4" src="img/sudut.png" alt="" data-fb="corner" onerror="imgFb(this)">
+  <svg class="cn c1"><use href="#corner"/></svg><svg class="cn c2"><use href="#corner"/></svg>
+  <svg class="cn c3"><use href="#corner"/></svg><svg class="cn c4"><use href="#corner"/></svg>
   <i class="petal" style="--l:20%;--d:0s"></i><i class="petal" style="--l:48%;--d:2s"></i><i class="petal" style="--l:72%;--d:4s"></i><i class="petal" style="--l:34%;--d:6s"></i>
   <p class="small">Hari Pernikahan dan Hari Bahagia</p>
   <h1 class="names nm">Fikri <small>&amp;</small> Syifa</h1>
@@ -42,7 +38,6 @@ function imgFb(i){var N="http://www.w3.org/2000/svg",s=document.createElementNS(
     <svg class="leafy"><use href="#leafy"/></svg>
     <p class="hand">“Barangkali ada doa-doa yang tumbuh dalam sunyi, dipanjatkan tanpa suara, lalu diam-diam dirawat oleh langit hingga tiba waktunya menjadi nyata.</p>
     <p class="hand">Atas izin Allah, kami yang menempuh jalannya masing-masing kini dipertemukan untuk berbagi arah, menyatukan langkah.”</p>
-    <img class="sep" src="img/pembatas.png" alt="" data-fb="leafy" onerror="imgFb(this)">
   </section>
 
   <!-- MEMPELAI -->
@@ -56,7 +51,6 @@ function imgFb(i){var N="http://www.w3.org/2000/svg",s=document.createElementNS(
     <h2 class="names nm">Syifa Dewi Fajriyani</h2>
     <p class="body">Putri dari<br><span data-cfg="ortuWanita">(nama kedua orang tua)</span></p>
     <svg class="duo"><use href="#duo"/></svg>
-    <img class="sep" src="img/pembatas.png" alt="" data-fb="leafy" onerror="imgFb(this)">
   </section>
 
   <!-- KISAH -->
@@ -81,7 +75,6 @@ function imgFb(i){var N="http://www.w3.org/2000/svg",s=document.createElementNS(
         <p class="body">Setelah sepanjang 2026 kami meyakinkan satu sama lain, kami ingin pada 31 Januari 2027 nanti menjadi hari paling bahagia dan awal kisah manis kami selanjutnya.</p>
       </div>
     </div>
-    <img class="sep" src="img/pembatas.png" alt="" data-fb="leafy" onerror="imgFb(this)">
   </section>
 
   <!-- WAKTU & TEMPAT -->
@@ -93,7 +86,6 @@ function imgFb(i){var N="http://www.w3.org/2000/svg",s=document.createElementNS(
       <div><span id="days">0</span><small>hari</small></div><div><span id="hours">0</span><small>jam</small></div>
       <div><span id="minutes">0</span><small>menit</small></div><div><span id="seconds">0</span><small>detik</small></div>
     </div>
-    <img class="sep" src="img/pembatas.png" alt="" data-fb="leafy" onerror="imgFb(this)">
   </section>
 
   <section class="reveal">
@@ -104,14 +96,12 @@ function imgFb(i){var N="http://www.w3.org/2000/svg",s=document.createElementNS(
       <p class="red" data-cfg="lokasiNama">(Lokasi)</p>
       <p class="body" data-cfg="lokasiAlamat"></p>
       <a class="btn" id="mapsBtn" href="#" target="_blank" rel="noopener" hidden>Buka Maps</a></div>
-    <img class="sep" src="img/pembatas.png" alt="" data-fb="leafy" onerror="imgFb(this)">
   </section>
 
   <!-- UCAPAN -->
   <section class="reveal">
     <h2 class="names title">Pesan &amp; Do’a</h2>
     <div id="wishes" class="wishes"><p class="body">Memuat ucapan…</p></div>
-    <img class="sep" src="img/pembatas.png" alt="" data-fb="leafy" onerror="imgFb(this)">
   </section>
 
   <!-- RSVP -->
@@ -126,7 +116,6 @@ function imgFb(i){var N="http://www.w3.org/2000/svg",s=document.createElementNS(
       <button class="btn solid red" id="sendBtn" type="submit">Kirim</button>
     </form>
     <svg class="bl"><use href="#bloom"/></svg>
-    <img class="sep" src="img/pembatas.png" alt="" data-fb="leafy" onerror="imgFb(this)">
   </section>
 
   <footer class="reveal">
