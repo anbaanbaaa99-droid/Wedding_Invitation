@@ -73,3 +73,29 @@ footer{padding-bottom:90px}
 
 .green .nm{font-size:2.9rem}
 footer .nm{font-size:2.6rem}
+
+/* ===== SLIDE BERFRAME BUNGA ===== */
+.slide{aspect-ratio:9/16;container-type:inline-size;padding:0;gap:0;justify-content:center;overflow:hidden;background:radial-gradient(ellipse at 50% 45%,#fffdf8 0%,var(--cream) 60%,#f1ecde 100%)}
+.artframe{position:absolute;inset:0;width:100%;height:100%;max-width:none;pointer-events:none}
+.slide-in{position:relative;z-index:1;width:62%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.2cqw}
+.slide-in .small{font-size:3.4cqw}
+.slide-in .body{font-size:3.7cqw;line-height:1.55;max-width:none}
+.slide-in .names{font-size:9cqw;text-wrap:balance}
+.slide-in .nm{font-size:10.5cqw}
+.slide-in .bl{width:11cqw;height:11cqw;margin:2cqw 0}
+.slide-in .btn{font-size:3.6cqw;padding:2.2cqw 6cqw;margin-top:2cqw}
+.slide-in .leafy.mini{width:40cqw;height:7cqw;margin:1cqw 0;max-width:none}
+.slide-akad .names{color:var(--olive)}
+@supports not (container-type:inline-size){.slide-in .small{font-size:.75rem}.slide-in .body{font-size:.85rem}.slide-in .names{font-size:2rem}.slide-in .nm{font-size:2.4rem}}
+
+/* ===== PERBAIKAN WARNA TEKS FORM KONFIRMASI KEHADIRAN ===== */
+/* Penyebab: aturan ".olive label" (krem terang) menimpa label di dalam form yang berlatar krem,
+   sehingga tulisan hampir tidak terlihat. Aturan di bawah lebih spesifik agar label gelap & jelas. */
+.olive form label{color:var(--ink);font-weight:600;font-size:.9rem}
+.olive form input,.olive form select,.olive form textarea{color:#2e1814;background:#fff;border:1.5px solid #a58b80}
+.olive form input::placeholder,.olive form textarea::placeholder{color:#7a645c;opacity:1}
+.olive form select:invalid{color:#6b564f}
+.olive form select option{color:#2e1814}
+.olive form input:focus,.olive form select:focus,.olive form textarea:focus{border-color:var(--red)}
+.wish small{opacity:1;color:#6b564f}
+.muted{color:#6b564f}
