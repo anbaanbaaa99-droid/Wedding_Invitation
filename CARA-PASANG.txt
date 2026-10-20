@@ -22,3 +22,9 @@ C. GITHUB PAGES
    https://USERNAME.github.io/undangan/
    Link per tamu (nama otomatis muncul di cover dan kolom RSVP):
    https://USERNAME.github.io/undangan/?to=Budi%20Santoso
+
+D. MUSIK LATAR
+1. Siapkan file MP3 lagu "Selalu Bahagia, Ya" - Luthfi & Hanggini.
+2. Beri nama selalu-bahagia-ya.mp3 dan taruh di folder musik/
+3. Upload folder musik ke GitHub bersama file lainnya (disarankan ukuran < 10 MB).
+   Musik mulai otomatis saat tombol "Buka Undangan" ditekan; tamu bisa menjeda lewat tombol bulat di pojok kanan bawah.

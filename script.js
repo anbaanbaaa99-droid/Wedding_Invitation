@@ -55,6 +55,7 @@ function openInvitation() {
   document.body.classList.remove("locked");
   window.scrollTo(0, 0);
   startReveal();
+  playMusic();
   setTimeout(() => { cover.style.display = "none"; }, 1100);
 }
 $("openBtn").addEventListener("click", openInvitation);
@@ -192,4 +193,31 @@ document.querySelectorAll("[data-copy]").forEach((btn) => {
       t.remove();
     }
   });
+});
+
+// ---------- Musik latar: Selalu Bahagia, Ya (Luthfi & Hanggini) ----------
+// Letakkan file MP3 di folder musik/ dengan nama selalu-bahagia-ya.mp3
+const bgm = $("bgm");
+const musicBtn = $("musicBtn");
+let wantPlay = false;
+bgm.volume = 0.6;
+function setPlaying(on) {
+  musicBtn.classList.toggle("playing", on);
+}
+function playMusic() {
+  if (bgm.error) { musicBtn.hidden = true; return; }
+  musicBtn.hidden = false;
+  bgm.play().then(() => { wantPlay = true; setPlaying(true); }).catch(() => setPlaying(false));
+}
+musicBtn.addEventListener("click", () => {
+  if (bgm.paused) {
+    bgm.play().then(() => { wantPlay = true; setPlaying(true); }).catch(() => toast("Musik tidak dapat diputar"));
+  } else {
+    bgm.pause(); wantPlay = false; setPlaying(false);
+  }
+});
+bgm.addEventListener("error", () => { musicBtn.hidden = true; });
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) bgm.pause();
+  else if (wantPlay) bgm.play().catch(() => {});
 });

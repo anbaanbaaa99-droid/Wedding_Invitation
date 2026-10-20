@@ -105,3 +105,38 @@ footer .nm{font-size:2.6rem}
 .giftcard .bank{font:400 1.4rem 'Mansalva',cursive;color:var(--red)}
 .giftcard .rek{font:600 1.5rem 'Lora',serif;letter-spacing:.08em;color:var(--ink)}
 .giftcard .body{max-width:none;overflow-wrap:anywhere}
+
+/* ===== TIMELINE: SULUR & BUNGA ===== */
+.story{padding-left:34px;margin-top:58px;margin-bottom:50px}
+.story::before{left:0;top:6px;bottom:6px;width:24px;border-radius:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='90' viewBox='0 0 24 90'%3E%3Cpath d='M12 0C5 15 19 30 12 45C5 60 19 75 12 90' fill='none' stroke='%237d2a45' stroke-width='2.4' stroke-linecap='round'/%3E%3Cellipse cx='6' cy='22' rx='6' ry='2.4' fill='%236f8a45' transform='rotate(-35 6 22)'/%3E%3Cellipse cx='18' cy='68' rx='6' ry='2.4' fill='%236f8a45' transform='rotate(35 18 68)'/%3E%3C/svg%3E") repeat-y center top}
+.story>div::after{display:none}
+.story .fl{position:absolute;left:-36px;top:-2px;width:28px;height:28px;max-width:none}
+.story .cap{position:absolute;left:-12px;width:48px;height:60px;max-width:none}
+.story .cap.top{top:-52px}.story .cap.bot{bottom:-52px}
+
+/* ===== SAVE THE DATE ===== */
+.olive .lead{font-size:1.25rem;max-width:none}
+.dateline{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;line-height:1.25;margin-top:8px}
+.dateline span{text-wrap:balance}
+.dateline .df{width:42px;height:42px;flex:none;max-width:none}
+
+/* ===== TANDA KASIH ===== */
+.gift .just{text-align:justify;text-justify:inter-word;hyphens:auto;max-width:340px;width:100%}
+
+/* ===== BUNGA BERJATUHAN (di semua halaman) ===== */
+.petals{position:fixed;inset:0;z-index:70;pointer-events:none;overflow:hidden}
+.pt{position:absolute;top:0;left:var(--l);width:var(--s);height:var(--s);opacity:.9;animation:fallflower var(--t) linear var(--d) infinite;will-change:transform}
+@keyframes fallflower{
+ 0%{transform:translate(0,-8vh) rotate(0)}
+ 25%{transform:translate(22px,24vh) rotate(90deg)}
+ 50%{transform:translate(-16px,52vh) rotate(180deg)}
+ 75%{transform:translate(20px,80vh) rotate(270deg)}
+ 100%{transform:translate(0,110vh) rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.petals{display:none}}
+
+/* ===== TOMBOL MUSIK ===== */
+.music{position:fixed;right:14px;bottom:20px;z-index:80;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--olive);background:rgba(249,245,239,.94);color:var(--olive);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.music[hidden]{display:none}
+.music svg{width:22px;height:22px}
+.music.playing{background:var(--olive);color:#fff;animation:spin 6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
