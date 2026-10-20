@@ -8,8 +8,8 @@ const CONFIG = {
   appsScriptUrl: "MASUKKAN_URL_APPS_SCRIPT",  // URL Web App berakhiran /exec
 
   // Isi data berikut (kosongkan "" untuk membiarkan teks bawaan di index.html)
-  ortuPria: "",        // contoh: "Bapak A & Ibu B"
-  ortuWanita: "",      // contoh: "Bapak C & Ibu D"
+  ortuPria: "Arif Rahman & Marsah",        // contoh: "Bapak A & Ibu B"
+  ortuWanita: "Suhada & Erni Hariyati",      // contoh: "Bapak C & Ibu D"
   lokasiNama: "",      // contoh: "Masjid Al-Ikhlas"
   lokasiAlamat: "",    // contoh: "Jl. Mawar No. 1, Jakarta"
   mapsUrl: ""          // link Google Maps lokasi
@@ -175,4 +175,21 @@ form.addEventListener("submit", (e) => {
       btn.disabled = false;
       btn.textContent = "Kirim";
     });
+});
+
+// ---------- Salin rekening / alamat ----------
+document.querySelectorAll("[data-copy]").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const text = $(btn.dataset.copy).textContent.trim();
+    const done = () => toast("Berhasil disalin");
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done).catch(fallback);
+    } else fallback();
+    function fallback() {
+      const t = document.createElement("textarea");
+      t.value = text; document.body.appendChild(t); t.select();
+      try { document.execCommand("copy"); done(); } catch (e) { toast("Gagal menyalin"); }
+      t.remove();
+    }
+  });
 });

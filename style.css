@@ -99,3 +99,9 @@ footer .nm{font-size:2.6rem}
 .olive form input:focus,.olive form select:focus,.olive form textarea:focus{border-color:var(--red)}
 .wish small{opacity:1;color:#6b564f}
 .muted{color:#6b564f}
+
+/* ===== HADIAH ===== */
+.giftcard{width:100%;max-width:340px;border:2px solid var(--leaf);border-radius:16px;background:#fffdf8;padding:20px 16px;display:flex;flex-direction:column;align-items:center;gap:4px;margin-top:8px}
+.giftcard .bank{font:400 1.4rem 'Mansalva',cursive;color:var(--red)}
+.giftcard .rek{font:600 1.5rem 'Lora',serif;letter-spacing:.08em;color:var(--ink)}
+.giftcard .body{max-width:none;overflow-wrap:anywhere}
