@@ -5,7 +5,7 @@
 
 const CONFIG = {
   weddingDate: "2027-01-31T07:00:00+07:00",   // Akad mulai 07.00 WIB
-  appsScriptUrl: "MASUKKAN_URL_APPS_SCRIPT",  // URL Web App berakhiran /exec
+  appsScriptUrl: "https://script.google.com/macros/s/AKfycbzPp2r9r2aWqKbAEx3VRgHG7Vz4H5SwbdHUa7fKEb0KmyS2v14DALWtYEm9MO6B_XP_/exec",  // URL Web App berakhiran /exec
 
   // Isi data berikut (kosongkan "" untuk membiarkan teks bawaan di index.html)
   ortuPria: "Bpk Arif Rahman & Ibu Marsah",        // contoh: "Bapak A & Ibu B"
