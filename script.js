@@ -8,8 +8,8 @@ const CONFIG = {
   appsScriptUrl: "MASUKKAN_URL_APPS_SCRIPT",  // URL Web App berakhiran /exec
 
   // Isi data berikut (kosongkan "" untuk membiarkan teks bawaan di index.html)
-  ortuPria: "Arif Rahman & Marsah",        // contoh: "Bapak A & Ibu B"
-  ortuWanita: "Suhada & Erni Hariyati",      // contoh: "Bapak C & Ibu D"
+  ortuPria: "Bpk Arif Rahman & Ibu Marsah",        // contoh: "Bapak A & Ibu B"
+  ortuWanita: "Bpk Suhada & Ibu Erni Hariyani",      // contoh: "Bapak C & Ibu D"
   lokasiNama: "",      // contoh: "Masjid Al-Ikhlas"
   lokasiAlamat: "",    // contoh: "Jl. Mawar No. 1, Jakarta"
   mapsUrl: ""          // link Google Maps lokasi
